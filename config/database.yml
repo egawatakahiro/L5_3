@@ -27,6 +27,6 @@ production:
   pool: 5
   database: test_render_h3kh
   username: test_render_h3kh_user
-  password: q4lERHM71d6rqRGSR1CYxmCzIqdXUaBi
+  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
   
