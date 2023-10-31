@@ -1,27 +1,17 @@
-<%#
-<br><br>
-<%= link_to "新規登録はこちら～", users_create_path%><%#<br>
-<%= link_to "削除はこちら～", users_destroy_path%>
-
-
-
-
-<h2>ユーザー一覧</h2>
-
-<table>
-    <tr>
-        <th>ユーザー名</th>
-    </tr>
-    <% @users.each do |user| %>
-        <tr>
-            <td>
-                <%= user.uid %>
-                <%= link_to '削除', "/users/#{user.id}", data: { turbo_method: :delete}, data: { confirm: '本当に削除しますか？' } %>
-            </td>
-        </tr>
-    <% end %>
-</table>
+<% @users.each do |e| %>
+<p>
+    UID： <%= e.uid %><br>
+    PASS： <%= e.pass %><br>
+    AGE： <%= e.age %><br>
+    <%= link_to "削除", user_path(e), data: { "turbo-method": :delete } %>
+</p>
+<% end %>
 
 <p>
-    <%= link_to '新規登録はこちらだよ！', new_user_path %>
+    <%= link_to "新規登録", new_user_path %>
+</p>
+
+<hr>
+<p>
+    <%= link_to "ツイート一覧", tweets_path %>
 </p>
