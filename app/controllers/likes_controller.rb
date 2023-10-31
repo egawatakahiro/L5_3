@@ -3,7 +3,7 @@ class LikesController < ApplicationController
         tweet = Tweet.find(params[:tweet_id])
         user = User.find_by(uid: session[:login_uid])
         user.like_tweets << tweet
-        redirect_to root_path
+        redirect_to root_path    #rootはツイート一覧画面
     end
     
     def destroy
