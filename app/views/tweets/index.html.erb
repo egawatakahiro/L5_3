@@ -9,6 +9,7 @@
 
 <hr>
 
+<h3><font color= "#ff1493">投稿</font></h3>
 <%= form_for @tweet, url: {action: :create} do |f| %>
     <%= f.label :message, 'MESSAGE' %>
     <%= f.text_field :message %>
@@ -17,7 +18,7 @@
 
 <hr>
 
-<% if session[:login_uid] %>
+<% if current_user %>
 <p>
     <%= link_to 'ログアウト', top_logout_path %>
 </p>
