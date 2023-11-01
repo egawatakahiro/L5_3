@@ -2,8 +2,11 @@
 <p>
     MESSAGE： <%= e.message %>
     <%= link_to "削除", tweet_path(e), data: { "turbo-method": :delete } %>
-    <%= link_to 'いいね', likes_path(tweet_id: e.id), data: { "turbo-method": :post } %>
-    <%= link_to 'いいね削除', like_path(e), data: { "turbo-method": :delete } %>
+    <% if e.liked?(current_user) %>
+        <%= link_to 'いいね削除💔', like_path(e), data: { "turbo-method": :delete } %><br>
+    <% else %>
+        <%= link_to 'いいね💛', likes_path(tweet_id: e.id), data: { "turbo-method": :post } %>
+    <% end %>
 </p>
 <% end %>
 
